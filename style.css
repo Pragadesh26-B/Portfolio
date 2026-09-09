@@ -149,11 +149,17 @@ button {
 
     text-transform: uppercase;
 
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    position: relative;
 }
 
 .navbar nav a:hover {
     color: white;
+
+    transform: translateY(-4px) scale(1.05);
+
+    text-shadow: 0 0 12px rgba(100,200,255,0.4);
 }
 
 .menu-btn {
@@ -405,11 +411,17 @@ button {
 
     text-transform: uppercase;
 
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    position: relative;
 }
 
 .social-links a:hover {
     color: white;
+
+    transform: translateY(-6px) scale(1.08);
+
+    text-shadow: 0 0 15px rgba(100,200,255,0.5);
 }
 
 .scroll-indicator {
@@ -652,7 +664,7 @@ button {
 
     min-height: 220px;
 
-    transition: 0.4s;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     position: relative;
 
@@ -676,13 +688,13 @@ button {
 }
 
 .skill-card:hover {
-    background: linear-gradient(135deg, #151515, #0c0c0c);
+    background: linear-gradient(135deg, #1a5f7f, #0c3a4f);
 
-    border-color: rgba(255,255,255,0.12);
+    border-color: rgba(100,200,255,0.3);
 
-    box-shadow: inset 0 1px 2px rgba(255,255,255,0.08), 0 12px 30px rgba(0,0,0,0.5);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 16px 40px rgba(100,200,255,0.3), 0 0 25px rgba(100,200,255,0.2);
 
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.03);
 }
 
 .skill-card:hover::before {
@@ -743,6 +755,25 @@ button {
     padding: 10px 17px;
 
     font-size: 0.75rem;
+
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    cursor: pointer;
+    position: relative;
+}
+
+.tool-list span:hover {
+    border-color: #64c8ff;
+
+    color: #ffffff;
+
+    background: linear-gradient(135deg, rgba(100,200,255,0.1), rgba(0,212,255,0.05));
+
+    box-shadow: 0 8px 20px rgba(100,200,255,0.25), inset 0 1px 2px rgba(255,255,255,0.15);
+
+    transform: translateY(-6px) scale(1.05);
+
+    text-shadow: 0 0 8px rgba(100,200,255,0.4);
 }
 
 
@@ -1078,7 +1109,7 @@ button {
 
     border-right: 1px solid var(--line);
 
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     position: relative;
 
@@ -1099,7 +1130,7 @@ button {
     background: linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
     transform: skewY(-15deg);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.4s;
 }
 
 .cert-card:last-child {
@@ -1107,11 +1138,13 @@ button {
 }
 
 .cert-card:hover {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    background: linear-gradient(135deg, rgba(100,200,255,0.15), rgba(0,212,255,0.08));
 
-    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 8px 20px rgba(0,0,0,0.4);
+    border-color: rgba(100,200,255,0.3);
 
-    transform: translateY(-3px);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), 0 12px 35px rgba(100,200,255,0.3), 0 0 20px rgba(100,200,255,0.15);
+
+    transform: translateY(-8px) scale(1.04);
 }
 
 .cert-card:hover::before {
@@ -1249,11 +1282,19 @@ button {
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    position: relative;
 }
 
 .contact-links a:hover {
     color: white;
+
+    transform: translateY(-6px) scale(1.08);
+
+    text-shadow: 0 0 12px rgba(100,200,255,0.5);
+
+    text-decoration: underline;
 }
 
 .resume-btn {
