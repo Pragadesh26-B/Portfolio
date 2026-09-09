@@ -32,48 +32,6 @@ document.getElementById("year").textContent =
 
 
 // =========================================
-// RESUME BUTTON
-// =========================================
-
-function downloadResume(event) {
-
-    event.preventDefault();
-
-    const resumePath = "resume.pdf";
-
-    fetch(resumePath, { method: "HEAD" })
-        .then(response => {
-
-            if (response.ok) {
-
-                const link = document.createElement("a");
-                link.href = resumePath;
-                link.download = "Pragadesh_B_Resume.pdf";
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-
-            } else {
-
-                alert(
-                    "Add your resume PDF as 'resume.pdf' inside the portfolio folder, then this button can download it."
-                );
-
-            }
-
-        })
-        .catch(() => {
-
-            alert(
-                "Add your resume PDF as 'resume.pdf' inside the portfolio folder, then this button can download it."
-            );
-
-        });
-
-}
-
-
-// =========================================
 // SIMPLE SCROLL ANIMATION
 // =========================================
 
@@ -119,3 +77,28 @@ document
         observer.observe(element);
 
     });
+
+
+// ANIMATED ROBOT HAND CURSOR
+
+const robotCursor = document.querySelector(".robot-cursor");
+
+if (robotCursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+
+    document.addEventListener("mousemove", event => {
+
+        robotCursor.style.left = `${event.clientX}px`;
+        robotCursor.style.top = `${event.clientY}px`;
+        robotCursor.classList.add("visible");
+
+    });
+
+    document.addEventListener("mousedown", () => {
+        robotCursor.classList.add("pressed");
+    });
+
+    document.addEventListener("mouseup", () => {
+        robotCursor.classList.remove("pressed");
+    });
+
+}
