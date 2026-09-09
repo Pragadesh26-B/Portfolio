@@ -24,6 +24,9 @@
     --accent: #ffffff;
 
     --max-width: 1200px;
+
+    --glow: 0 0 20px rgba(255,255,255,0.1);
+    --glow-intense: 0 0 30px rgba(255,255,255,0.15);
 }
 
 
@@ -108,11 +111,13 @@ button {
 
     justify-content: space-between;
 
-    background: rgba(5, 5, 5, 0.88);
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0.95), rgba(5, 5, 5, 0.85));
 
     backdrop-filter: blur(15px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.05);
 }
 
 .logo {
@@ -303,30 +308,71 @@ button {
     text-transform: uppercase;
 
     transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.2), 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .btn-primary {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
 
     color: black;
 
-    border-color: white;
+    border-color: #ffffff;
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 8px 20px rgba(255,255,255,0.2);
 }
 
 .btn-primary:hover {
-    background: transparent;
+    background: linear-gradient(135deg, #f5f5f5, #ffffff);
 
-    color: white;
+    color: black;
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.5), 0 12px 30px rgba(255,255,255,0.3);
+
+    transform: translateY(-2px);
 }
 
 .btn-outline {
     color: white;
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .btn-outline:hover {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
 
     color: black;
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 12px 30px rgba(255,255,255,0.25);
+
+    transform: translateY(-2px);
 }
 
 .social-links {
@@ -451,6 +497,18 @@ button {
     padding: 15px;
 
     border: 1px solid #292929;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 8px 25px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.08);
+
+    transition: 0.4s;
+}
+
+.profile-frame:hover {
+    border-color: #404040;
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), 0 12px 35px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.12);
 }
 
 .profile-photo {
@@ -486,6 +544,19 @@ button {
     object-fit: cover;
     border-radius: 4px;
     display: block;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.1);
+}
+
+.profile-img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05), transparent);
+    border-radius: 4px;
+    pointer-events: none;
 }
 
 .about-content h3 {
@@ -562,17 +633,47 @@ button {
 }
 
 .skill-card {
-    background: var(--black-2);
+    background: linear-gradient(135deg, #0f0f0f, #080808);
 
     padding: 35px;
 
     min-height: 220px;
 
     transition: 0.4s;
+
+    position: relative;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.05), 0 8px 20px rgba(0,0,0,0.4);
+
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
 .skill-card:hover {
-    background: #151515;
+    background: linear-gradient(135deg, #151515, #0c0c0c);
+
+    border-color: rgba(255,255,255,0.12);
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.08), 0 12px 30px rgba(0,0,0,0.5);
+
+    transform: translateY(-4px);
+}
+
+.skill-card:hover::before {
+    opacity: 1;
 }
 
 .skill-number {
@@ -740,11 +841,34 @@ button {
     border: 1px solid #222;
 
     background:
-        radial-gradient(
-            circle,
-            #161616,
-            #070707
+        linear-gradient(
+            135deg,
+            rgba(22, 22, 22, 0.9),
+            rgba(7, 7, 7, 0.9)
         );
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.05), 0 8px 20px rgba(0,0,0,0.4);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.project-visual::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: glossyShine 4s infinite;
+}
+
+@keyframes glossyShine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
 }
 
 .energy-animation {
@@ -942,6 +1066,27 @@ button {
     border-right: 1px solid var(--line);
 
     transition: 0.3s;
+
+    position: relative;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.05);
+
+    overflow: hidden;
+}
+
+.cert-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
+    transform: skewY(-15deg);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .cert-card:last-child {
@@ -949,7 +1094,16 @@ button {
 }
 
 .cert-card:hover {
-    background: #0c0c0c;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 8px 20px rgba(0,0,0,0.4);
+
+    transform: translateY(-3px);
+}
+
+.cert-card:hover::before {
+    opacity: 1;
+    top: 0;
 }
 
 .cert-card span {
@@ -1030,15 +1184,39 @@ button {
 
     font-size: clamp(1.2rem, 3vw, 2rem);
 
-    border-bottom: 1px solid #444;
+    border-bottom: 2px solid #444;
 
     padding-bottom: 8px;
 
     transition: 0.3s;
+
+    position: relative;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.email-link::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
 }
 
 .email-link:hover {
     border-color: white;
+
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.email-link:hover::before {
+    width: 100%;
 }
 
 .contact-links {
@@ -1079,12 +1257,37 @@ button {
     letter-spacing: 2px;
 
     transition: 0.3s;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.3);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.resume-btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shine 3s infinite;
 }
 
 .resume-btn:hover {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
 
     color: black;
+
+    border-color: #ffffff;
+
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 8px 20px rgba(255,255,255,0.2);
+
+    transform: translateY(-2px);
 }
 
 
